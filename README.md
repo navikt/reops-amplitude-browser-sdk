@@ -1,4 +1,4 @@
-# Filer for å brenytte amplitude-proxy med Browser SDK.
+# Filer for å benytte amplitude-proxy med Browser SDK.
 
 For å legge til Amplitude-spring med browser-sdk trenger du å kjøre amplitudeBrowser.js-scritpået på klienten.
 
