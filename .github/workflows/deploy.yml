@@ -23,7 +23,7 @@ jobs:
           source: ./amplitudeNavBrowserSdk.js
           destination: '/'
 
-      - id: upload 2
+      - id: upload-2
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: team-researchops
