@@ -52,10 +52,7 @@
             }(window, document)
         }();
 
-        const API_KEY = "dff20991aa9e21a3fd3b774f4eb394bc";
-        amplitude.init(API_KEY, {
-            serverZone: amplitude.Types.ServerZone.EU
-        });
+        amplitude.init("dff20991aa9e21a3fd3b774f4eb394bc", null, {serverZone: "EU"});
         amplitude.track("Button Clicked");
     </script>
 </head>
