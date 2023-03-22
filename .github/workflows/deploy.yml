@@ -30,5 +30,12 @@ jobs:
           source: ./amplitude.html
           destination: '/'
 
+      - id: upload-3
+        uses: navikt/frontend/actions/cdn-upload/v1@main
+        with:
+          cdn-team-name: team-researchops
+          source: ./amplitudeNavBrowserSdk-1.9.1-min.js
+          destination: '/'
+
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
