@@ -48,7 +48,7 @@ jobs:
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: team-researchops
-          source: ./amplitude3.html
+          source: ./amplitude4.html
           destination: '/'
 
       - id: upload-6
