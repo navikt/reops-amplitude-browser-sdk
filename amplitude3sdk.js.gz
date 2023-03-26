@@ -742,7 +742,7 @@
             }), e
         }(),
         J = function(e, t) {
-            return e === v.EU ? t ? "https://api.eu.amplitude.com/batch" : "https://amplitude.nav.no/collect" : t ? "https://api2.amplitude.com/batch" : C
+            return e === v.EU ? t ? "https://amplitude.nav.no/collect" : "https://amplitude.nav.no/collect" : t ? "https://amplitude.nav.no/collect" : C
         },
         Y = function(e, t, i) {
             if (void 0 === e && (e = ""), void 0 === t && (t = Z().serverZone), void 0 === i && (i = Z().useBatch), e) return {
