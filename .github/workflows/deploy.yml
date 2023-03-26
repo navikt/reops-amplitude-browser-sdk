@@ -37,5 +37,19 @@ jobs:
           source: ./amplitudeNavBrowserSdk-1.9.1-min.js
           destination: '/'
 
+      - id: upload-4
+        uses: navikt/frontend/actions/cdn-upload/v1@main
+        with:
+          cdn-team-name: team-researchops
+          source: ./amplitudenav.html
+          destination: '/'
+
+      - id: upload-5
+        uses: navikt/frontend/actions/cdn-upload/v1@main
+        with:
+          cdn-team-name: team-researchops
+          source: ./amplitudenavsdk.js.gz
+          destination: '/'
+
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
         shell: bash
