@@ -19,7 +19,7 @@ jobs:
       - id: upload
         uses: nais/deploy/actions/cdn-upload/v2@master
         with:
-          cdn-team-name: team-researchops
+          team: team-researchops
           source: dist
           destination: '/'
           source_keep_parent_name: false
