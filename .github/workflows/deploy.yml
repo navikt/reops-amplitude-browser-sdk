@@ -1,4 +1,4 @@
-name: 'push-to-cdn'
+name: Upload to CDN
 
 on:
   push:
@@ -14,70 +14,16 @@ jobs:
       id-token: 'write'
 
     steps:
-      - uses: 'actions/checkout@v3'
+      - uses: 'actions/checkout@v4'
 
       - id: upload
-        uses: navikt/frontend/actions/cdn-upload/v1@main
+        uses: nais/deploy/actions/cdn-upload/v2@master
         with:
           cdn-team-name: team-researchops
-          source: ./amplitudeNavBrowserSdk.js
+          source: dist
           destination: '/'
-
-      - id: upload-2
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitude.html
-          destination: '/'
-
-      - id: upload-3
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitudeNavBrowserSdk-1.9.1-min.js
-          destination: '/'
-
-      - id: upload-4
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitude2.html
-          destination: '/'
-
-      - id: upload-5
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitude4.html
-          destination: '/'
-
-      - id: upload-6
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitude2sdk.js.gz
-          destination: '/'
-
-      - id: upload-7
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitude3sdk.js.gz
-          destination: '/'
-
-      - id: upload-8
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitude5.html
-          destination: '/'
-
-      - id: upload-prod
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: team-researchops
-          source: ./amplitudeNavSdk.js.gz
-          destination: '/'
+          source_keep_parent_name: false
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
 
       - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
-        shell: bash
